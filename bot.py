@@ -4,7 +4,6 @@ from supabase import create_client
 
 ADMIN_ID = 956357652
 
-# Sonra bunları öz məlumatlarınla dəyiş
 SUPABASE_URL = "https://qbvzqcitdewggwmjjpcf.supabase.co"
 SUPABASE_KEY = "sb_publishable_sIiPaIq3-n0R5PB0LtvpCQ_sfE9nH1U"
 
@@ -25,9 +24,7 @@ async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Nomre yaz.")
         return
 
-    supabase.table("nomreler").insert({
-        "nomre": text
-    }).execute()
+    supabase.table("nomreler").insert({"nomre": text}).execute()
 
     await update.message.reply_text("Elave edildi.")
 
@@ -35,12 +32,7 @@ async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def check_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.strip().upper()
 
-    result = (
-        supabase.table("nomreler")
-        .select("nomre")
-        .eq("nomre", text)
-        .execute()
-    )
+    result = supabase.table("nomreler").select("nomre").eq("nomre", text).execute()
 
     if result.data:
         await update.message.reply_text("Movcuddur")
@@ -55,5 +47,4 @@ app.add_handler(CommandHandler("add", add))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, check_number))
 
 app.run_polling()
-```
 
