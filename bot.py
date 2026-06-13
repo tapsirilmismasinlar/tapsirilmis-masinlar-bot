@@ -1,12 +1,13 @@
+```python
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
 from supabase import create_client
-import os
 
 ADMIN_ID = 956357652
 
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+# Sonra bunları öz məlumatlarınla dəyiş
+SUPABASE_URL = "https://qbvzqcitdewggwmjjpcf.supabase.co"
+SUPABASE_KEY = "sb_publishable_sIiPaIq3-n0R5PB0LtvpCQ_sfE9nH1U"
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
@@ -36,8 +37,7 @@ async def check_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.strip().upper()
 
     result = (
-        supabase
-        .table("nomreler")
+        supabase.table("nomreler")
         .select("nomre")
         .eq("nomre", text)
         .execute()
@@ -56,3 +56,5 @@ app.add_handler(CommandHandler("add", add))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, check_number))
 
 app.run_polling()
+```
+
