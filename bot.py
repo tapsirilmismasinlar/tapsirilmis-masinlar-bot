@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes
+from telegram.ext import Application, CommandHandler, MessageHandler, filters
 
 ADMIN_ID = 956357652
 
@@ -41,5 +41,5 @@ app = Application.builder().token("8949021536:AAFXX8r7I0J166Z5fraqpugc-76vFSPyMW
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("add", add))
 app.add_handler(CommandHandler("list", list_numbers))
-
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, check_number))
 app.run_polling()
