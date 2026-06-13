@@ -49,7 +49,7 @@ async def check_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Yoxdur")
 
 
-app = Application.builder().token("BOT_TOKENINI_BURAYA_YAZ").build()
+app = Application.builder().token("8949021536:AAFXX8r7I0J166Z5fraqpugc-76vFSPyMWM").build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("add", add))
