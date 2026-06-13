@@ -1,1 +1,0 @@
-# tapsirilmis-masinlar-bot
