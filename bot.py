@@ -6,7 +6,7 @@ ADMIN_ID = 956357652
 numbers = []
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-await update.message.reply_text(“Bot işləyir.”)
+await update.message.reply_text("Bot işləyir.")
 
 async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
 if update.effective_user.id != ADMIN_ID:
