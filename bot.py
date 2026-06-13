@@ -29,8 +29,8 @@ else:
 
 app = Application.builder().token("8949021536:AAFXX8r7I0J166Z5fraqpugc-76vFSPyMWM").build()
 
-app.add_handler(CommandHandler(“start”, start))
-app.add_handler(CommandHandler(“add”, add))
+app.add_handler(CommandHandler("start", start))
+app.add_handler(CommandHandler("add", add))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, check_number))
 
 app.run_polling()
