@@ -18,23 +18,28 @@ if update.effective_user.id != ADMIN_ID:
 return
 
 text = " ".join(context.args).upper()
+
 if not text:
     await update.message.reply_text("Nomre yaz.")
     return
+
 supabase.table("nomreler").insert({
     "nomre": text
 }).execute()
-await update.message.reply_text("Elave edildi.")
 
+await update.message.reply_text("Elave edildi.")
 async def check_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
 text = update.message.text.strip().upper()
 
 result = supabase.table("nomreler").select("nomre").eq("nomre", text).execute()
-if result.data:
-    await update.message.reply_text("Movcuddur")
-else:
-    await update.message.reply_text("Yoxdur")
 
+if result.data:
+
+    await update.message.reply_text("Movcuddur")
+
+else:
+
+    await update.message.reply_text("Yoxdur")
 app = Application.builder().token(“8949021536:AAFXX8r7I0J166Z5fraqpugc-76vFSPyMWM”).build()
 
 app.add_handler(CommandHandler(“start”, start))
