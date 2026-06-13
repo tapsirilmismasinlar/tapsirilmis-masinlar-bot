@@ -5,7 +5,7 @@ from supabase import create_client
 ADMIN_ID = 956357652
 
 SUPABASE_URL = "https://qbvzqcitdewggwmjjpcf.supabase.co"
-SUPABASE_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFidnpxY2l0ZGV3Z2d3bWpqcGNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzNTA3NDMsImV4cCI6MjA5NjkyNjc0M30.XOkQvTrDCoiNpua8GTaEbXpIGYvq_hIm6-9SqqWcgNU
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFidnpxY2l0ZGV3Z2d3bWpqcGNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzNTA3NDMsImV4cCI6MjA5NjkyNjc0M30.XOkQvTrDCoiNpua8GTaEbXpIGYvq_hIm6-9SqqWcgNU"
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
