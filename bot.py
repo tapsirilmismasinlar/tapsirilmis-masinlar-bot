@@ -6,26 +6,28 @@ ADMIN_ID = 956357652
 numbers = []
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-await update.message.reply_text("Bot işləyir.")
+    await update.message.reply_text("Bot isleyir.")
 
 async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
-if update.effective_user.id != ADMIN_ID:
-return
+    if update.effective_user.id != ADMIN_ID:
+        return
 
-text = " ".join(context.args).upper()
-if not text:
-    await update.message.reply_text("Nömrə yaz.")
-    return
-numbers.append(text)
-await update.message.reply_text("Əlavə edildi.")
+    text = " ".join(context.args).upper()
+
+    if not text:
+        await update.message.reply_text("Nomre yaz.")
+        return
+
+    numbers.append(text)
+    await update.message.reply_text("Elave edildi.")
 
 async def check_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
-text = update.message.text.strip().upper()
+    text = update.message.text.strip().upper()
 
-if text in numbers:
-    await update.message.reply_text("Nömrə sistemdə mövcuddur")
-else:
-    await update.message.reply_text("Qeydiyyatı yoxdur")
+    if text in numbers:
+        await update.message.reply_text("Movcuddur")
+    else:
+        await update.message.reply_text("Yoxdur")
 
 app = Application.builder().token("8949021536:AAFXX8r7I0J166Z5fraqpugc-76vFSPyMWM").build()
 
