@@ -21,7 +21,15 @@ async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
     numbers.append(text)
     await update.message.reply_text("Əlavə edildi.")
 
-async def list_numbers(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def list_numbers(wait update.message.reply_text("\n".join(numbers))
+
+async def check_number(update: Update, context):
+    text = update.message.text.strip().upper()
+
+    if text in numbers:
+        await update.message.reply_text("Tapşırılıb")
+    else:
+        await update.message.reply_text("Tapşırılmayıb")):
     if not numbers:
         await update.message.reply_text("Nömrə yoxdur.")
         return
