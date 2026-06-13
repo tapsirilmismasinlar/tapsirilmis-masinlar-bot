@@ -28,7 +28,7 @@ async def list_numbers(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text("\n".join(numbers))
 
-app = Application.builder().token("BURAYA_TOKEN").build()
+app = Application.builder().token("8949021536:AAFXX8r7I0J166Z5fraqpugc-76vFSPyMWM").build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("add", add))
