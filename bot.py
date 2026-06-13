@@ -27,7 +27,7 @@ if text in numbers:
 else:
     await update.message.reply_text("Qeydiyyatı yoxdur")
 
-app = Application.builder().token(“8949021536:AAFXX8r7I0J166Z5fraqpugc-76vFSPyMWM”).build()
+app = Application.builder().token("8949021536:AAFXX8r7I0J166Z5fraqpugc-76vFSPyMWM").build()
 
 app.add_handler(CommandHandler(“start”, start))
 app.add_handler(CommandHandler(“add”, add))
