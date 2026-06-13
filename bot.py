@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-ADMIN_ID = 123456789
+ADMIN_ID = 956357652
 
 numbers = []
 
