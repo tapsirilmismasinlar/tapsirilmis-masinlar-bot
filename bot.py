@@ -61,7 +61,7 @@ async def check_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         await update.message.reply_text(f"Xeta: {e}")
 
-app = Application.builder().token("8949021536:AAFXX8r7I0J166Z5fraqpugc-76vFSPyMWM").build()
+app = Application.builder().token("8949021536:AAH37aqRKVBrABajx2hSvUDvC2_JeGtTD_M").build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("add", add))
