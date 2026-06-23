@@ -103,7 +103,36 @@ async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
             pass
 
     await update.message.reply_text(f"{sent} neferə gonderildi.")
+async def delete_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await save_user(update.effective_user.id)
 
+    if update.effective_user.id != ADMIN_ID:
+        return
+
+    text = " ".join(context.args).upper()
+
+    if not text:
+        await update.message.reply_text("Nomre yaz.")
+        return
+
+    try:
+        supabase.table("nomreler").delete().eq("nomre", text).execute()
+        await update.message.reply_text("Silindi.")
+    except Exception as e:
+        await update.message.reply_text(f"Xeta: {e}")
+
+
+async def count_numbers(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await save_user(update.effective_user.id)
+
+    if update.effective_user.id != ADMIN_ID:
+        return
+
+    result = supabase.table("nomreler").select("nomre").execute()
+
+    await update.message.reply_text(
+        f"Umumi nomre sayi: {len(result.data)}"
+    )
 
 async def check_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await save_user(update.effective_user.id)
@@ -134,7 +163,8 @@ app.add_handler(CommandHandler("add", add))
 app.add_handler(CommandHandler("list", list_numbers))
 app.add_handler(CommandHandler("stats", stats))
 app.add_handler(CommandHandler("broadcast", broadcast))
-
+app.add_handler(CommandHandler("del", delete_number))
+app.add_handler(CommandHandler("count", count_numbers))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, check_number))
 
 app.run_polling()
