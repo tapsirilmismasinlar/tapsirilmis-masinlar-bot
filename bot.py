@@ -156,7 +156,7 @@ async def check_number(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"Xeta: {e}")
 
 
-app = Application.builder().token("8949021536:AAH37aqRKVBrABajx2hSvUDvC2_JeGtTD_M").build()
+app = Application.builder().token("8949021536:AAHpfn8Sss6V7n8KFAAIKiaBQC7NzN5mwEc").build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("add", add))
